@@ -1,0 +1,27 @@
+<div class ="container">
+  <% if flash[:success] %>
+    <div class="alert alert-success"><%= flash[:success] %></div>
+  <% elsif flash[:error] %>
+    <div class="alert alert-danger"><%= flash[:error] %></div>
+  <% end %>
+  <div class ="header">
+    <h1>kittens</h1>
+  </div>
+  <% @kittens.each do |kitten|%>
+
+  <div class="card text-center">
+    <div>
+      <h2>Name : <%= kitten.name %></h2>
+      <div class="card-body">
+        <%= link_to "Go To Kitten ", kitten_path(kitten),method: :get ,:class=>"btn btn-primary btn-lg" %>
+        </br>
+        </br>
+        <%= button_to "Delete Kitten ", kitten_path(kitten),method: :delete,:class=>"btn btn-danger btn-lg" %>
+      </div>
+    </div>
+  </div>
+  </br>
+  <%end %>
+  <%= link_to "New kitten", new_kitten_path ,:class=>"btn btn-secondary btn-lg"%>
+
+</div>

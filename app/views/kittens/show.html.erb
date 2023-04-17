@@ -1,0 +1,23 @@
+<div class ="container">
+  <% if flash[:success] %>
+    <div class="alert alert-success"><%= flash[:success] %></div>
+  <% elsif flash[:error] %>
+    <div class="alert alert-danger"><%= flash[:error] %></div>
+  <% end %>
+  <div class="header">
+    <h2>Name : <%=@kitten.name%></h2>
+  </div>
+  <div>
+    <p>Age : <%=@kitten.age%></p>
+  </div>
+  <div>
+    <p>Cuteness : <%=@kitten.cuteness%> </p>
+  </div>
+  <div>
+    <p>Softness : <%=@kitten.softness%></p>
+  </div>
+  <%= button_to "Delete Kitten ", kitten_path(@kitten),method: :delete,:class=>"btn btn-danger btn-lg" %>
+  </br>
+  <%= link_to "update Kitten ", edit_kitten_path(@kitten),:class=>"btn btn-info btn-lg" %>
+  <%= link_to "Back Home ", kittens_path,:class=>"btn btn-dark btn-lg" %>
+</div>
